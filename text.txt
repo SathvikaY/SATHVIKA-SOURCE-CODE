@@ -1,0 +1,4 @@
+command 1 : ls (to find a list of files related to the device)
+command 2 : mkdir name (name directory is created)
+command 3 : rmdir name (name directory is deleted)
+command 4 : git add text.txt (file named text is added to git bash) 
