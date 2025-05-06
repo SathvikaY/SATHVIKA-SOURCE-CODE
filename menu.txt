@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Menu</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="menu">
+    <h2>Our Special Menu</h2>
+    <div class="menu-item">
+        <p>☕ Coffee - $3</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <p>🍰 Cheesecake - $5</p>
+        <button>Add to Cart</button>
+    </div>
+</section>
+
+</body>
+</html>
