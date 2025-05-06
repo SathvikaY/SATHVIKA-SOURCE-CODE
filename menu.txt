@@ -1,35 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
 <header>
-    <h1>Menu</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="signin.html">Sign In</a></li>
-        </ul>
-    </nav>
+  <h1>Menu</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="signin.html">Sign In</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section class="menu">
-    <h2>Our Special Menu</h2>
-    <div class="menu-item">
-        <p>☕ Coffee - $3</p>
-        <button>Add to Cart</button>
-    </div>
-    <div class="menu-item">
-        <p>🍰 Cheesecake - $5</p>
-        <button>Add to Cart</button>
-    </div>
+  <h2>Menu</h2>
+
+  <div class="menu-item">
+    <p>☕ Black Coffee - $3</p>
+    <button onclick="addToCart('Black Coffee', 3)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🍰 Blueberry Cheesecake - $5</p>
+    <button onclick="addToCart('Blueberry Cheesecake', 5)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🥤 Cold Coffee - $4</p>
+    <button onclick="addToCart('Cold Coffee', 4)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🥛 Coffee Latte - $4</p>
+    <button onclick="addToCart('Coffee Latte', 4)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🍮 Caramel Pudding - $4</p>
+    <button onclick="addToCart('Caramel Pudding', 4)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🍫 Mocha Frappe - $5</p>
+    <button onclick="addToCart('Mocha Frappe', 5)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🧁 Chocolate Cupcake - $3</p>
+    <button onclick="addToCart('Chocolate Cupcake', 3)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🥧 Apple Pie - $4</p>
+    <button onclick="addToCart('Apple Pie', 4)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>🍨 Vanilla Ice Cream - $3</p>
+    <button onclick="addToCart('Vanilla Ice Cream', 3)">Add to Cart</button>
+  </div>
+
+  <div class="menu-item">
+    <p>☕ Espresso Shot - $2</p>
+    <button onclick="addToCart('Espresso Shot', 2)">Add to Cart</button>
+  </div>
 </section>
+
+<script>
+  function addToCart(itemName, itemPrice) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name: itemName, price: itemPrice });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(itemName + " added to cart!");
+  }
+</script>
 
 </body>
 </html>
+
