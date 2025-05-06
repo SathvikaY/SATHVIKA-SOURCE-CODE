@@ -1,28 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
 <header>
-    <h1>Shopping Cart</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="signin.html">Sign In</a></li>
-        </ul>
-    </nav>
+  <h1>Shopping Cart</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="signin.html">Sign In</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section class="cart">
-    <h2>Your Order</h2>
-    <p>No items added yet!</p>
+  <h2>Your Order</h2>
+  <ul id="cart-items"></ul>
+  <div id="cart-total"><p>Total: $0</p></div>
+  <button onclick="clearCart()">Clear Cart</button>
 </section>
+
+<script>
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = "<li>No items added yet!</li>";
+    } else {
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+    }
+
+    cartTotal.innerHTML = `<p>Total: $${total}</p>`;
+  }
+
+  function clearCart() {
+    localStorage.removeItem("cart");
+    loadCart();
+  }
+
+  window.onload = loadCart;
+</script>
 
 </body>
 </html>
