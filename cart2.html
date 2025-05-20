@@ -31,7 +31,7 @@
 
     cart.forEach(item => {
       if (item.item && item.price) {
-        cartHtml += `<p>${item.item} - ₹${item.price}</p>`;
+        cartHtml += <p>${item.item} - ₹${item.price}</p>;
         total += item.price;
       }
     });
@@ -42,10 +42,10 @@
     const finalTotal = discountedTotal + gst;
 
     document.getElementById("cartItems").innerHTML = cartHtml || "<p>No items in cart.</p>";
-    document.getElementById("subtotal").textContent = total ? `Subtotal: ₹${total.toFixed(2)}` : "";
-    document.getElementById("discount").textContent = total ? `Discount (10%): -₹${discount.toFixed(2)}` : "";
-    document.getElementById("gst").textContent = total ? `GST (5%): ₹${gst.toFixed(2)}` : "";
-    document.getElementById("totalBill").textContent = total ? `Total: ₹${finalTotal.toFixed(2)}` : "";
+    document.getElementById("subtotal").textContent = total ? Subtotal: ₹${total.toFixed(2)} : "";
+    document.getElementById("discount").textContent = total ? Discount (10%): -₹${discount.toFixed(2)} : "";
+    document.getElementById("gst").textContent = total ? GST (5%): ₹${gst.toFixed(2)} : "";
+    document.getElementById("totalBill").textContent = total ? Total: ₹${finalTotal.toFixed(2)} : "";
 
     function clearCart() {
       localStorage.removeItem("cart");
@@ -55,5 +55,4 @@
 
 </body>
 </html>
-
 
